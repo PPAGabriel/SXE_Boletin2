@@ -42,3 +42,35 @@ Con el uso del siguiente comando, debemos añadir primero la ruta absoluta de la
 
 ### 5. Realiza un 'hola mundo' en HTML (usa Code) y comprueba que accedes desde el navegador.
 
+Creamos un formato HTML dentro de la carpeta htdocs, que previamente ubicamos como montaje en nuestro servidor.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="titulo">
+        Hola Mundo
+    </h1>
+    <div>
+        <img src="https://bestpsb.files.wordpress.com/2022/03/mono-loco.png?w=340" alt="" srcset="">
+    </div>
+</body>
+</html>
+```
+
+### 6. Crea otro contenedor 'dam_web2' con el mismo volumen y a otro puerto, por ejemplo 9080.
+
+Para esto, repetimos los pasos realizados en el apartado 4. Con la diferencia que en la extensión de la variable *"-p"*, usaremos 9080:80
+
+>`docker run -dit --name dam_web2 -p 9080:80 -v /home/dam2/Documentos/SXE/SXE_Boletin2/htdocs:/usr/local/apache2/htdocs httpd:2.4`
+
+Ademas de esto, podemos observar que la extensión *"--name"* permite cambiar el nombre.
+
+> [!WARNING]  
+> De no cambiar el nombre, creara un error por el conflicto de tener dos contenedores en el cual uno esta en uso, independiente de que se encuentre en otro puerto.
