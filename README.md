@@ -27,3 +27,18 @@ Con el siguiente comando podemos verificar que el contenedor esta creado y en ej
 | CONTAINER ID  | IMAGE | COMMAND | CREATED | STATUS | PORTS | NAMES |
 |---------------|-------|---------|---------|--------|------|-------|
 |2fa4f100c08b   |httpd:2.4 | "httpd-foreground"| 2 minutes ago    | Up 2 minutes ago   | 0.0.0.0:80->80/tcp, :::80->80/tcp | dam_httpd |
+
+### 3. Si quieres poder acceder desde el navegador de tu equipo, ¿qué debes hacer?
+
+Se accede gracias a la IP del ordenador, además de añadir la extensión del puerto (en esta caso 8080).
+
+>`10.0.9.82:8080`
+
+### 4. Utiliza bid mount para que el directorio del apache2 'htdocs' este montado un directorio que tu elijas.
+
+Con el uso del siguiente comando, debemos añadir primero la ruta absoluta de la carpeta en la que deseamos montar el *"htdocs* con la variable *"-v*, seguidamente la ruta donde está de manera predeterminada
+
+>`docker run -dit --name dam_http -p 8080:80 -v /home/dam2/Documentos/SXE/SXE_Boletin2/htdocs:/usr/local/apache2/htdocs httpd:2.4`
+
+### 5. Realiza un 'hola mundo' en HTML (usa Code) y comprueba que accedes desde el navegador.
+
