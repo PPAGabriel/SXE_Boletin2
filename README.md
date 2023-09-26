@@ -6,7 +6,7 @@ Para descargar la imagen, es necesario utilizar la web de [Docker](https://hub.d
 
 Ubicando la imagen de 'httpd', descargaremos la ultima versión empleando el siguiente comando en el terminal:
 
-> `$ docker run -dit --name dam_http -p 8080:80 httpd:2.4`
+> `docker run -dit --name dam_http -p 8080:80 httpd:2.4`
 
 Al lanzar el siguiente comando, podemos verificar que la imagen fue instalada exitosamente con el siguiente comando:
 
@@ -50,16 +50,12 @@ Creamos un formato HTML dentro de la carpeta htdocs, que previamente ubicamos co
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <h1 class="titulo">
         Hola Mundo
     </h1>
-    <div>
-        <img src="https://bestpsb.files.wordpress.com/2022/03/mono-loco.png?w=340" alt="" srcset="">
-    </div>
 </body>
 </html>
 ```
@@ -74,3 +70,44 @@ Ademas de esto, podemos observar que la extensión *"--name"* permite cambiar el
 
 > [!WARNING]  
 > De no cambiar el nombre, creara un error por el conflicto de tener dos contenedores en el cual uno esta en uso, independiente de que se encuentre en otro puerto.
+
+### 7. Comprueba que los dos servidores 'sirven' la misma página
+
+Accediendo a las siguientes direcciones, verificamos que el HTML es visible en ambas.
+
+
+    http://localhost:9080 
+
+    http://localhost:8080
+
+
+### 8. Realiza modificaciones de la página y comprueba que los dos servidores 'sirven' la misma página
+
+Agregamos una hoja de estilo CSS y cambiamos el codigo del HTML.
+
+Accediendo a las direcciones del apartado anterior, confirmamos su modificación y funcionamiento.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="titulo">
+        Los monos están reparando el servidor
+    </h1>
+    <div>
+        <img src="https://bestpsb.files.wordpress.com/2022/03/mono-loco.png?w=340" alt="" srcset="">
+    </div>
+</body>
+</html>
+```
+
+---
+
+## ¡DALE UN 10 A ESTA RESEÑA! :smile:
+
